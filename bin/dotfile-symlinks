@@ -27,6 +27,8 @@ for dir in $(ls $DOTFILES); do
 	done
 done
 
+mkdir -p ~/bin
+
 for file in $(ls $DOTFILES/bin); do
 	SOURCE=~/bin/$file
 	TARGET=../$REL_DOTFILES/bin/$file
