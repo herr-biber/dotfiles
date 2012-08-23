@@ -1,8 +1,10 @@
 [user]
-	name = Martin Baeuml
+	name = Markus Roth
+	email = markus.roth@herr-biber.de
 
 [core]
-	excludesfile = /home/baeuml/.gitignore
+	excludesfile = /home/markus/.gitignore
+	excludesfile = /home/mroth/.gitignore
 
 [color]
 	ui = auto
