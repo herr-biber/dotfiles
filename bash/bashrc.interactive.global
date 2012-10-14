@@ -130,3 +130,7 @@ alias apts="apt-cache search"
 alias aptu="sudo apt-get upgrade"
 alias aptdu="sudo apt-get dist-upgrade"
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
+
+# Set debian package build information
+export DEBFULLNAME="Markus Roth"
+export DEBEMAIL="markus.roth@herr-biber.de" 
