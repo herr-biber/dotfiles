@@ -19,7 +19,7 @@
 	st = status
 	br = branch
 	sm = submodule
-	su = submodule update --init --recursive
+	su = submodule update --init
 	psu = !git pull && git su
 
 [merge]
