@@ -4,6 +4,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	attributesfile = /home/markus/.gitattributes
 
 [color]
 	ui = auto
@@ -35,3 +36,5 @@
 	fontdiff = -family \"DejaVu Sans Mono\" -size 8 -weight normal -slant roman -underline 0 -overstrike 0
 	spellingdictionary = en_US
 
+[diff "odf"]
+	textconv=odt2txt
