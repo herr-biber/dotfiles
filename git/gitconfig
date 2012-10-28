@@ -3,8 +3,7 @@
 	email = markus.roth@herr-biber.de
 
 [core]
-	excludesfile = /home/markus/.gitignore
-	excludesfile = /home/mroth/.gitignore
+	excludesfile = ~/.gitignore
 
 [color]
 	ui = auto
