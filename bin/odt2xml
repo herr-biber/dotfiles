@@ -1,0 +1,2 @@
+#!/bin/bash
+odt2txt --raw $@ | tidy -xml -utf8 # -i -q

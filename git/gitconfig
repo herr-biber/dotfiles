@@ -37,4 +37,4 @@
 	spellingdictionary = en_US
 
 [diff "odf"]
-	textconv=odt2txt
+	textconv = odt2xml
