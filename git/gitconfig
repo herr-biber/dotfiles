@@ -23,7 +23,7 @@
 	psu = !git pull && git su
 
 [merge]
-	tool = vimdiff
+	tool = meld
 
 [status]
 	submodulesummary = true
