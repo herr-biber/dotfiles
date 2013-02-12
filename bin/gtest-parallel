@@ -24,18 +24,21 @@ do
     done
 done
 
-parallel --joblog ${TEST_FILE}.joblog "$@" ${TEST_FILE} --gtest_filter={1} ::: ${TESTS[@]}
+JOBLOG=$(mktemp)
+
+parallel --joblog ${JOBLOG} "$@" ${TEST_FILE} --gtest_filter={1} ::: ${TESTS[@]}
 
 # check return value of all jobs
-# 7th col, all rows except first
-for i in $(cat *.joblog | cut -f7 | tail -n+2);
-do
-    if [[ "$i" != "0" ]];
-    then
-        rm -f ${TEST_FILE}.joblog
-        exit $i;
-    fi
-done
+# 7th col
+# all rows except first
+# count 
 
-rm -f ${TEST_FILE}.joblog
-exit 0
+FAILEDTESTS=$(cat ${JOBLOG} | cut -f7 | tail -n+2 | grep -c -v '^0')
+
+if [[ "$FAILEDTESTS" != "0" ]]
+then
+    echo
+    echo "Error: $FAILEDTESTS tests failed!"
+fi
+
+exit $FAILEDTESTS
