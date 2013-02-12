@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Runs tests inside a gtest binary in parallel using gnu parallel.
+
+if [ $# -lt 1 ]
+then
+    echo "Error: No gtest binary file given!"
+    echo
+    echo "Usage: $0 <gtest file> [gnu parallel options]"
+    echo
+    exit 1
+fi
+
+TEST_FILE=$1
+shift 
+
+# Create array of test names: TestName.SubTest
+TESTS=()
+for TEST_NAME in `${TEST_FILE} --gtest_list_tests | grep -v "^  "`
+do
+    for SUBTEST in $(${TEST_FILE} --gtest_filter="${TEST_NAME}*" --gtest_list_tests | tail -n +2)
+    do
+        TESTS=(${TESTS[@]} ${TEST_NAME}${SUBTEST})
+    done
+done
+
+parallel --joblog ${TEST_FILE}.joblog "$@" ${TEST_FILE} --gtest_filter={1} ::: ${TESTS[@]}
+
+# check return value of all jobs
+# 7th col, all rows except first
+for i in $(cat *.joblog | cut -f7 | tail -n+2);
+do
+    if [[ "$i" != "0" ]];
+    then
+        rm -f ${TEST_FILE}.joblog
+        exit $i;
+    fi
+done
+
+rm -f ${TEST_FILE}.joblog
+exit 0
