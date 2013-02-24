@@ -37,7 +37,7 @@ alias 'cgrep=grep --color=always'
 export MAKEFLAGS="-j4"
 
 # enable color support of ls and also add handy alias
-if [ "$TERM" != "dumb" ]; then
+if [[ "$TERM" != "dumb" && $(which dircolors) ]]; then
     eval "$(dircolors -b)"
     alias ls='ls --color=auto'
 fi
