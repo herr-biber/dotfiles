@@ -5,3 +5,5 @@ alias ssh='ssh -c arcfour,blowfish-cbc -XC'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias clip='xclip -selection c'
+# cd into most recent subdir
+alias cdnew='cd $(ls -d  -tr -- */| tail -1)'
