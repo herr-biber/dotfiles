@@ -39,3 +39,17 @@ xterm*color14: #34E2E2
 ! White
 xterm*color7:  #D3D7CF
 xterm*color15: #EEEEEC
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! URxvt
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+URxvt.font:         xft:DejaVu Sans Mono:size=8
+URxvt.letterSpace:  -1
+URxvt.reverseVideo: false
+URxvt.foreground:   Green
+URxvt.background:   Black
+URxvt.scrollBar:    false
+URxvt.visualBell:   false
+URxvt.urgentOnBell: true
+URxvt.iso14755:     false
+URxvt.iso14755_52:  false
