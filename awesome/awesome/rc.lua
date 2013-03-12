@@ -399,6 +399,15 @@ awful.rules.rules = {
       properties = { tag = tags[1][9] } },
     { rule = { class = "associator" },
       properties = { tag = tags[1][5] } },
+    { rule = { class = "Git-gui" },
+      properties = { maximized_horizontal = true,
+                     maximized_vertical   = true } },
+    { rule = { class = "Git-citool" },
+      properties = { maximized_horizontal = true,
+                     maximized_vertical   = true } },
+    { rule = { class = "Gitk" },
+      properties = { maximized_horizontal = true,
+                     maximized_vertical   = true } },
 }
 -- }}}
 
