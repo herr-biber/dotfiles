@@ -55,3 +55,23 @@ URxvt.visualBell:   false
 URxvt.urgentOnBell: true
 URxvt.iso14755:     false
 URxvt.iso14755_52:  false
+
+! Plugins
+URxvt.perl-lib:        .urxvt/perl
+URxvt.perl-ext-common: url-select,keyboard-select,clipboard
+
+! URL selection plugin
+URxvt.keysym.M-u:      perl:url-select:select_next
+URxvt.urlLauncher:     firefox
+URxvt.underlineURLs:   true
+URvxt.urlButton:       2
+
+! Text selection plugin
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+! Clipboard plugin
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.M-Control-v:     perl:clipboard:paste_escaped
+URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
