@@ -128,6 +128,7 @@ alias apti="sudo apt-get install"
 alias apts="apt-cache search"
 alias aptu="sudo apt-get upgrade"
 alias aptdu="sudo apt-get dist-upgrade"
+alias screen="tmux"
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 
 # Set debian package build information
