@@ -288,6 +288,7 @@ globalkeys = awful.util.table.join(
     awful.key({ "Mod1", "Control" }, "l",     function () os.execute("gnome-screensaver-command -l") end),
     awful.key({ modkey, "Control" }, "q",     function () awful.util.spawn("/usr/lib/indicator-session/gtk-logout-helper --logout") end),
     awful.key({ modkey, "Control" }, "w",     function () awful.util.spawn("/usr/lib/indicator-session/gtk-logout-helper --shutdown") end),
+    awful.key({ modkey, "Control" }, "e",     function () awful.util.spawn("/usr/lib/indicator-session/gtk-logout-helper --restart") end),
 
     awful.key({ modkey }, "x",
               function ()
