@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $1 != "-f" ]];
+then
+echo "Performing a dry run."
+echo "Use option -f to delete gedit cache files."
+echo 
+DRY=--dry-run
+else
+DRY=
+fi
+
+find . -name '*~' | parallel $DRY rm {1}
