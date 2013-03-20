@@ -77,8 +77,16 @@ layouts =
 -- Define a tag table which will hold all screen tags.
 tags = {
     names  = { "browse", "✉", "mail", 4, 5, 6, 7, 8, 9 } ,
-    layout = { layouts[1], awful.layout.suit.fair, layouts[1], awful.layout.suit.tile, layouts[1],
-          layouts[1], layouts[1], layouts[1], layouts[1]}
+    layout = { awful.layout.suit.tile.bottom,
+               awful.layout.suit.fair,
+               awful.layout.suit.tile.bottom,
+               awful.layout.suit.tile,
+               awful.layout.suit.tile,
+               awful.layout.suit.tile,
+               awful.layout.suit.tile,
+               awful.layout.suit.tile,
+               awful.layout.suit.tile,
+             }
 }
 for s = 1, screen.count() do
  -- Each screen has its own tag table.
