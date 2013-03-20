@@ -455,9 +455,24 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = "#00cc00" end)
+client.add_signal("focus", 
+    function(c) 
+        if c.maximized_horizontal == true and c.maximized_vertical == true then
+            c.border_width = 0
+        else
+            c.border_width = beautiful.border_width
+        end
+            
+        c.border_color = "#00cc00"
+    end)
 client.add_signal("unfocus", function(c) c.border_color = "#555555" end)
 -- }}}
+
+floatapps =
+{
+    ["gimp"] = true,
+    ["tilda"] = true
+}
 
 -- os.execute("nm-applet &")
 os.execute("if ! ps -e | grep \"nm-applet\"; then exec nm-applet & fi")
