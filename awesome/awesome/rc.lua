@@ -455,8 +455,8 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.add_signal("focus", function(c) c.border_color = "#00cc00" end)
+client.add_signal("unfocus", function(c) c.border_color = "#555555" end)
 -- }}}
 
 -- os.execute("nm-applet &")
