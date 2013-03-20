@@ -55,6 +55,7 @@ URxvt.visualBell:   false
 URxvt.urgentOnBell: true
 URxvt.iso14755:     false
 URxvt.iso14755_52:  false
+URxvt.cursorBlink:  true
 
 ! Plugins
 URxvt.perl-lib:        .urxvt/perl
