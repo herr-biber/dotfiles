@@ -9,9 +9,6 @@ require("naughty")
 
 -- Load Debian menu entries
 require("debian.menu")
-
--- mR
-
 require("vicious")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -20,6 +17,10 @@ beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 --beautiful.init("themes/nice-and-clean-theme/theme.lua")
 --beautiful.init("themes/tj-awesome-themes/Darklooks/theme.lua")
 --beautiful.init("themes/Darklooks/theme.lua")
+
+-- Override border colors
+beautiful.border_normal = "#555555"
+beautiful.border_focus  = "#00cc00"
 
 -- Mem widget
 memwidget = widget({ type = "textbox" })
@@ -463,9 +464,9 @@ client.add_signal("focus",
             c.border_width = beautiful.border_width
         end
             
-        c.border_color = "#00cc00"
+        c.border_color = beautiful.border_focus
     end)
-client.add_signal("unfocus", function(c) c.border_color = "#555555" end)
+client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
 floatapps =
