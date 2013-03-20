@@ -38,7 +38,9 @@ export MAKEFLAGS="-j4"
 
 # enable color support of ls and also add handy alias
 if [[ "$TERM" != "dumb" && $(which dircolors) ]]; then
+
     eval "$(dircolors -b)"
+    LS_COLORS="$LS_COLORS:di=01;33" # Make dirs yellow
     alias ls='ls --color=auto'
 fi
 
@@ -100,7 +102,7 @@ function my_prompt_command
 	fi
 
 	# Set prompt
-	PS1="${USER_COLOR}\u${GREEN}@${CYAN}\h${RESET}:${LBLUE}${PROMPT_PWD}${LRED}${PROMPT_RC}${PURPLE}${GIT_BRANCH}${RESET}\\\$ "
+	PS1="${USER_COLOR}\u${GREEN}@${CYAN}\h${RESET}:${YELLOW}${PROMPT_PWD}${LRED}${PROMPT_RC}${PURPLE}${GIT_BRANCH}${RESET}\\\$ "
 
 	# Set xterm title and screen title
 	case "$TERM" in
