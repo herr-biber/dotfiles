@@ -462,7 +462,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- os.execute("nm-applet &")
 os.execute("if ! ps -e | grep \"nm-applet\"; then exec nm-applet & fi")
-os.execute("if ! ps -e | grep \"tilda\"; then exec tilda & fi")
+--os.execute("if ! ps -e | grep \"tilda\"; then exec tilda & fi")
 os.execute("gnome-settings-daemon &")
 os.execute("gnome-sound-applet &")
 --os.execute("bluetooth-applet &")
