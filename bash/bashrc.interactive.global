@@ -23,6 +23,9 @@ if [ -z "$BASH_COMPLETION" ]; then
 	fi
 fi
 
+# disable bell
+set bell-style none
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
