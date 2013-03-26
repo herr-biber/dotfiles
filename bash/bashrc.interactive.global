@@ -26,13 +26,18 @@ fi
 # disable bell
 set bell-style none
 
+export LC_MESSAGES=C
+
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-export LC_MESSAGES=C
+# Use source-highlight, if available
+if hash src-hilite-lesspipe.sh 2>/dev/null; then
+    export LESSOPEN="| src-hilite-lesspipe.sh %s"
+fi
 
 # make less interpret color escape codes
-export LESS="-FSRX"
+export LESS="$LESS -FSRX"
 
 # make grep use colors
 export GREP_OPTIONS='--color=auto'
