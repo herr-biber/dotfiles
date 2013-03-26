@@ -1,0 +1,2 @@
+# disable gedit errors
+alias gedit='gedit 2>/dev/null'

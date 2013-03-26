@@ -1,0 +1,4 @@
+. /videmo/distlibs/bin/setup.sh
+export PATH=/videmo/tools/sloth/sloth/bin:${PATH}
+export PYTHONPATH=/home/mroth/build/gentoo-glibc2.15-gcc4.5.4-x86_64/okapi/release/python:${PYTHONPATH}
+alias sloth="sloth -c /home/mroth/src/mot-scoring/pymot/slothconfig.py"
