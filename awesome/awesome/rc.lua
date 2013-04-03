@@ -427,6 +427,8 @@ awful.rules.rules = {
     { rule = { class = "Gitk" },
       properties = { maximized_horizontal = true,
                      maximized_vertical   = true } },
+    { rule = { instance = "TeamViewer.exe" },
+      properties = { floating = true } },
 }
 -- }}}
 
