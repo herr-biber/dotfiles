@@ -432,6 +432,8 @@ awful.rules.rules = {
                      maximized_vertical   = true } },
     { rule = { instance = "TeamViewer.exe" },
       properties = { floating = true } },
+    { rule = { class = "Exe"},
+      properties = {floating = true} },
 }
 -- }}}
 
