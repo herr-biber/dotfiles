@@ -477,12 +477,6 @@ client.add_signal("focus",
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-floatapps =
-{
-    ["gimp"] = true,
-    ["tilda"] = true
-}
-
 -- os.execute("nm-applet &")
 os.execute("if ! ps -e | grep \"nm-applet\"; then exec nm-applet & fi")
 --os.execute("if ! ps -e | grep \"tilda\"; then exec tilda & fi")
