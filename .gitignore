@@ -5,3 +5,10 @@ vim/tags/*
 vim/view/*
 vim/vim/spell/en.utf-8.add*
 *~
+moc/moc/cache/*
+moc/moc/equalizer
+moc/moc/last_directory
+moc/moc/mocp_client_log
+moc/moc/pid
+moc/moc/playlist.m3u
+moc/moc/softmixer
