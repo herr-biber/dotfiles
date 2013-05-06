@@ -105,6 +105,8 @@ function my_prompt_command
 	fi
 
 	# Get git branch
+	# Ubuntu
+	[[ -f /usr/lib/git-core/git-sh-prompt ]] && source /usr/lib/git-core/git-sh-prompt
 	if declare -F __git_ps1 >/dev/null 2>&1; then
 		local GIT_BRANCH=$(__git_ps1 "[%s]")
 	else
