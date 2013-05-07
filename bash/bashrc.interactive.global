@@ -105,8 +105,11 @@ function my_prompt_command
 	fi
 
 	# Get git branch
+    # Get definition of __git_ps1
 	# Ubuntu
 	[[ -f /usr/lib/git-core/git-sh-prompt ]] && source /usr/lib/git-core/git-sh-prompt
+    # Arch
+    [[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
 	if declare -F __git_ps1 >/dev/null 2>&1; then
 		local GIT_BRANCH=$(__git_ps1 "[%s]")
 	else
@@ -143,6 +146,8 @@ alias apts="apt-cache search"
 alias aptu="sudo apt-get upgrade"
 alias aptdu="sudo apt-get dist-upgrade"
 alias screen="tmux"
+alias sc="sudo systemctl"
+alias y="yaourt"
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 
 # Set debian package build information
