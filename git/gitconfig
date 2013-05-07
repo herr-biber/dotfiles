@@ -38,5 +38,3 @@
 
 [diff "odf"]
 	textconv = odt2xml
-[push]
-	default = simple
