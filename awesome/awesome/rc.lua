@@ -990,10 +990,14 @@ else
     client.connect_signal("focus", 
         function(c) 
             if c.maximized_horizontal == true and c.maximized_vertical == true then
+                c.border_width = 0
             else
                 c.border_width = beautiful.border_width
             end
-        end)
+
+            c.border_color = beautiful.border_focus 
+       end)
     client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
     -- }}}
+
 end
