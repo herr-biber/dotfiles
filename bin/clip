@@ -1,0 +1,5 @@
+#!/bin/bash
+# send stdin without tailing newline to x clipboard
+INPUT=$(cat /dev/stdin)
+echo -ne "${INPUT}" | xclip -selection c -f
+echo
