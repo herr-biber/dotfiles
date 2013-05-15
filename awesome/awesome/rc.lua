@@ -447,6 +447,10 @@ if not is_awesome_35 then
           properties = { floating = true } },
         { rule = { class = "Exe"},
           properties = {floating = true} },
+        { rule = { class = "Steam"}, 
+          properties = {floating = true} },
+        { rule = { class = "Stack.bin.x86"}, 
+          properties = {floating = true} },
     }
     -- }}}
 
