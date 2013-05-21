@@ -915,6 +915,8 @@ else
           properties = { floating = true } },
         { rule = { class = "Exe"},
           properties = {floating = true} },
+        { rule = { class = "URxvt"},
+          properties = { size_hints_honor = false} },
     }
     -- }}}
 
