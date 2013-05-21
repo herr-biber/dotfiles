@@ -61,7 +61,7 @@ if not is_awesome_35 then
     editor = os.getenv("EDITOR") or "editor"
     editor_cmd = terminal .. " -e " .. editor
 
-    fileBrowser = "nautilus"
+    fileBrowser = "thunar"
 
     -- Default modkey.
     -- Usually, Mod4 is the key with a logo between Control and Alt.
