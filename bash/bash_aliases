@@ -9,3 +9,9 @@ alias cdnew='cd $(ls -d  -tr -- */| tail -1)'
 alias gedit='gedit 2>/dev/null'
 alias lsabs='find $PWD -maxdepth 1 -type f'
 alias llabs='lsabs | xargs ls -l'
+
+# cd to target of link
+function cdlink
+{
+    cd $(readlink $1)
+}
