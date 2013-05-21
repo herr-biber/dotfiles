@@ -451,6 +451,9 @@ if not is_awesome_35 then
           properties = {floating = true} },
         { rule = { class = "Stack.bin.x86"}, 
           properties = {floating = true} },
+        { rule = { name = "File Operation Progress"}, -- thunar file operation progress
+          properties = {floating = true} },
+
     }
     -- }}}
 
@@ -918,6 +921,8 @@ else
         { rule = { instance = "TeamViewer.exe" },
           properties = { floating = true } },
         { rule = { class = "Exe"},
+          properties = {floating = true} },
+        { rule = { name = "File Operation Progress"}, -- thunar file operation progress
           properties = {floating = true} },
         { rule = { class = "URxvt"},
           properties = { size_hints_honor = false} },
