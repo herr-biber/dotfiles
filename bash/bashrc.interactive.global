@@ -12,7 +12,7 @@ shopt -s checkwinsize
 # Make history more comfortable.
 shopt -s cmdhist
 shopt -s histappend
-HISTCONTROL=ignoredups
+HISTCONTROL=ignoreboth
 HISTFILESIZE=10000
 HISTSIZE=10000
 
