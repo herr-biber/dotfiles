@@ -5,7 +5,7 @@ alias ssh='ssh -c arcfour,blowfish-cbc -XC'
 alias ..='cd ..'
 alias ...='cd ../..'
 # cd into most recent subdir
-alias cdnew='cd $(ls -d  -tr -- */| tail -1)'
+#alias cdnew='cd $(ls -d  -tr -- */| tail -1)'
 alias gedit='gedit 2> /dev/null'
 alias evince='evince 2> /dev/null'
 alias lsabs='find $PWD -maxdepth 1 -type f'
@@ -16,3 +16,17 @@ function cdlink
 {
     cd $(readlink $1)
 }
+
+function new
+{
+    if [[ -d $1 ]]; then
+        ls -t1 $1 | head -n1
+    else
+        ls -t1 . | head -n1
+    fi
+    
+}
+
+alias lsnew="ls -d $(new)"
+alias llnew="ll -d $(new)"
+alias cdnew="cd $(new)"
