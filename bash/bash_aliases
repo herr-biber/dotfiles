@@ -10,6 +10,16 @@ alias gedit='gedit 2> /dev/null'
 alias evince='evince 2> /dev/null'
 alias lsabs='find $PWD -maxdepth 1 -type f'
 alias llabs='lsabs | xargs ls -l'
+alias glances='glances -e'
+
+alias cpptags="ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
+alias apti="sudo apt-get install"
+alias apts="apt-cache search"
+alias aptu="sudo apt-get upgrade"
+alias aptdu="sudo apt-get dist-upgrade"
+alias screen="tmux"
+alias sc="sudo systemctl"
+alias y="yaourt"
 
 # cd to target of link
 function cdlink
@@ -24,7 +34,6 @@ function new
     else
         ls -t1 . | head -n1
     fi
-    
 }
 
 alias lsnew="ls -d $(new)"
