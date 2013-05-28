@@ -1,3 +1,0 @@
-# disable gedit errors
-alias gedit='gedit 2>/dev/null'
-PATH=/home/mroth/build/gentoo-glibc2.15-gcc4.5.4-x86_64/facesdk/release/bin/:$PATH
