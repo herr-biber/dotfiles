@@ -30,4 +30,6 @@ xmodmap -e "keycode 106 = KP_Divide NoSymbol KP_Divide NoSymbol"
 #ssh agent
 eval $(ssh-agent)
 
+pulseaudio -D
+
 exec awesome
