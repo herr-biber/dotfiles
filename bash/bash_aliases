@@ -39,3 +39,4 @@ function new
 alias lsnew="ls -d $(new)"
 alias llnew="ll -d $(new)"
 alias cdnew="cd $(new)"
+alias dparallel="parallel --dry-run"
