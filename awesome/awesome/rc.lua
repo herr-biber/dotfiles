@@ -405,7 +405,7 @@ if not is_awesome_35 then
           properties = { floating = true } },
         { rule = { class = "pinentry" },
           properties = { floating = true } },
-        { rule = { class = "gimp" },
+        { rule = { class = "Gimp" },
           properties = { floating = true } },
         -- Set Firefox to always map on tags number 2 of screen 1.
         -- { rule = { class = "Firefox" },
@@ -885,7 +885,7 @@ else
           properties = { floating = true } },
         { rule = { class = "pinentry" },
           properties = { floating = true } },
-        { rule = { class = "gimp" },
+        { rule = { class = "Gimp" },
           properties = { floating = true } },
         { rule = { class = "Tilda" },
           properties = { floating = true} },
