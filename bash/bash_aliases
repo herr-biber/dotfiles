@@ -18,6 +18,7 @@ alias aptu="sudo apt-get upgrade"
 alias aptdu="sudo apt-get dist-upgrade"
 alias screen="tmux"
 alias sc="sudo systemctl"
+alias glances="glances -e"
 alias y="yaourt"
 
 # cd to target of link
