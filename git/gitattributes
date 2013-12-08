@@ -1,3 +1,4 @@
-*.ods diff=odf
-*.odt diff=odf
-*.odp diff=odf
+*.odt diff=odt
+*.ods diff=odt
+*.odt diff=odt
+*.odp diff=odt
