@@ -39,5 +39,10 @@
 [diff "odt"]
 	binary = true
 	textconv = odt2txt
+
+[diff "diffpdf"]
+	binary = true
+	command = diffpdf
+
 #[push]
 #	default = simple

@@ -2,3 +2,4 @@
 *.ods diff=odt
 *.odt diff=odt
 *.odp diff=odt
+*.pdf diff=diffpdf
