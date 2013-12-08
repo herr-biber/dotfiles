@@ -30,6 +30,8 @@ xmodmap -e "keycode 106 = KP_Divide NoSymbol KP_Divide NoSymbol"
 #ssh agent
 eval $(ssh-agent)
 
+#export CHROMIUM_USER_FLAGS=--audio-buffer-size=2048:${CHROMIUM_USER_FLAGS}
+
 pulseaudio -D
 
 exec awesome
