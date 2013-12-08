@@ -12,3 +12,5 @@ moc/moc/mocp_client_log
 moc/moc/pid
 moc/moc/playlist.m3u
 moc/moc/softmixer
+tilda/tilda/locks
+parallel/parallel/tmp

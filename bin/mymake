@@ -39,7 +39,7 @@ MODULE_DIRS="$HOME/src"
 BUILD_DEBUG=
 BUILD_RELEASE=1
 BUILD_MODULES=
-BUILD_TOOL=make
+BUILD_TOOL=ninja
 
 ###############################################################################
 # Configuration file

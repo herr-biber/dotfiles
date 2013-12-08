@@ -31,7 +31,8 @@ if not is_awesome_35 then
 
     -- Override border colors
     beautiful.border_normal = "#555555"
-    beautiful.border_focus  = "#00cc00"
+    beautiful.border_width  = 2
+    beautiful.border_focus  = "#cc0000"
 
     -- Mem widget
     memwidget = widget({ type = "textbox" })
@@ -554,7 +555,8 @@ else
 
     -- Override border colors
     beautiful.border_normal = "#555555"
-    beautiful.border_focus  = "#00cc00"
+    beautiful.border_width  = 2
+    beautiful.border_focus  = "#cc0000"
 
 
     -- This is used later as the default terminal and editor to run.

@@ -4,3 +4,6 @@ build.*/
 /.clang_complete
 .*.swp
 *~
+/CMakeLists.txt.user
+*.pyc
+/.idea
