@@ -526,6 +526,7 @@ else
 
     bashets = require("bashets")
     
+   local APW = require("apw/widget")
     batterystatus = wibox.widget.textbox()
     bashets.register("/usr/bin/acpi -b | cut -d ' ' -f4 | cut -d ',' -f1", 
        {
@@ -722,6 +723,7 @@ else
         -- Widgets that are aligned to the right
         local right_layout = wibox.layout.fixed.horizontal()
         if s == 1 then right_layout:add(wibox.widget.systray()) end
+        right_layout:add(APW)
         right_layout:add(batterystatus)
         right_layout:add(mytextclock)
         right_layout:add(mylayoutbox[s])
@@ -817,7 +819,10 @@ else
                       awful.util.getdir("cache") .. "/history_eval")
                   end),
         -- Menubar
-        awful.key({ modkey }, "p", function() menubar.show() end)
+        awful.key({ modkey }, "p", function() menubar.show() end),
+        awful.key({ }, "XF86AudioRaiseVolume",  APW.Up),
+        awful.key({ }, "XF86AudioLowerVolume",  APW.Down),
+        awful.key({ }, "XF86AudioMute",         APW.ToggleMute)
     )
 
     clientkeys = awful.util.table.join(
