@@ -7,7 +7,7 @@ DESKTOP_PACKAGES="xf86-video-ati"
 
 install_base_devel()
 {
-    sudo -n pacman -Syu base-devel wget --noconfirm --needed
+    sudo -n pacman -Syu base-devel patch wget --noconfirm --needed
 }
 
 install_yaourt()
@@ -28,6 +28,24 @@ install_yaourt()
     popd > /dev/null
 }
 
+enable_multiarch()
+{
+
+    # multilib already enabled
+    grep -q '^\[multilib\]' /etc/pacman.conf && echo "Multilib already enabled" && return
+
+    # apply patch    
+    echo "Enabling multilib in /etc/pacman.conf"
+    cat << EOF | sudo patch -N -p0 /etc/pacman.conf
+@@ -92,2 +92,2 @@ Include = /etc/pacman.d/mirrorlist
+-#[multilib]
+-#Include = /etc/pacman.d/mirrorlist
++[multilib]
++Include = /etc/pacman.d/mirrorlist
+EOF
+
+}
+
 install_packages()
 {
     yaourt --noconfirm --needed -S "$@"
@@ -43,6 +61,9 @@ main()
         install_base_devel
         install_yaourt
     fi
+    
+    # enable x86
+    enable_multiarch
 
     # update package list
     sudo -n yaourt -Sy
