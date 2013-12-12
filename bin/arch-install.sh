@@ -7,7 +7,7 @@ DESKTOP_PACKAGES="xf86-video-ati"
 
 install_base_devel()
 {
-    sudo -n pacman -Syu base-devel --noconfirm --needed
+    sudo -n pacman -Syu base-devel wget --noconfirm --needed
 }
 
 install_yaourt()
