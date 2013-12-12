@@ -57,3 +57,6 @@
 [submodule "urxvt/urxvt/ext/urxvt-perls"]
 	path = urxvt/urxvt/ext/urxvt-perls
 	url = https://github.com/muennich/urxvt-perls
+[submodule "awesome/awesome/apw"]
+	path = awesome/awesome/apw
+	url = https://github.com/mokasin/apw.git

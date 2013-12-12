@@ -524,6 +524,18 @@ else
     local naughty = require("naughty")
     local menubar = require("menubar")
 
+    bashets = require("bashets")
+    
+    batterystatus = wibox.widget.textbox()
+    bashets.register("/usr/bin/acpi -b | cut -d ' ' -f4 | cut -d ',' -f1", 
+       {
+           widget = batterystatus,
+           update_time = 60, 
+           separator = '|',
+           format = "  B:$1" 
+       })
+
+
     -- {{{ Error handling
     -- Check if awesome encountered an error during startup and fell back to
     -- another config (This code will only ever execute for the fallback config)
@@ -710,6 +722,7 @@ else
         -- Widgets that are aligned to the right
         local right_layout = wibox.layout.fixed.horizontal()
         if s == 1 then right_layout:add(wibox.widget.systray()) end
+        right_layout:add(batterystatus)
         right_layout:add(mytextclock)
         right_layout:add(mylayoutbox[s])
 
