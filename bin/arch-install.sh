@@ -55,6 +55,10 @@ main()
 {
     # update credentials
     sudo -v
+    
+    # keep-alive: update existing sudo time stamp if set, otherwise do nothing
+    # https://gist.github.com/cowboy/3118588
+    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
     # install yaourt, if not yet installed
     if ! hash yaourt 2> /dev/null; then
