@@ -60,3 +60,6 @@
 [submodule "awesome/awesome/apw"]
 	path = awesome/awesome/apw
 	url = https://github.com/mokasin/apw.git
+[submodule "awesome/awesome/bashets"]
+	path = awesome/awesome/bashets
+	url = https://git.gitorious.org/bashets/bashets.git
