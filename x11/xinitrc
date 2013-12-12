@@ -34,4 +34,4 @@ eval $(ssh-agent)
 
 pulseaudio -D
 
-exec awesome
+exec $1
