@@ -33,19 +33,24 @@ install_packages()
     yaourt --noconfirm --needed -S "$@"
 }
 
-# Update credentials
-sudo -v
+main()
+{
+    # update credentials
+    sudo -v
 
-# install yaourt, if not yet installed
-if ! hash yaourt 2> /dev/null; then
-    install_base_devel
-    install_yaourt
-fi
+    # install yaourt, if not yet installed
+    if ! hash yaourt 2> /dev/null; then
+        install_base_devel
+        install_yaourt
+    fi
 
-# update package list
-sudo -n yaourt -Sy
+    # update package list
+    sudo -n yaourt -Sy
 
-# install packages
-install_packages $PACKAGES
+    # install packages
+    install_packages $PACKAGES
 
-# TODO enable_services
+    # TODO enable_services
+}
+
+main
