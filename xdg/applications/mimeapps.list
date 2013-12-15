@@ -1,0 +1,12 @@
+[Default Applications]
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+application/pdf=evince.desktop
+inode/directory=Thunar.desktop
+image/jpeg=sxiv.desktop
+image/gif=sxiv.desktop
+image/tiff=sxiv.desktop
+image/png=sxiv.desktop
+text/plain=gedit.desktop
+x-scheme-handler/mailto=thunderbird.desktop
+application/x-shellscript=gedit.desktop
