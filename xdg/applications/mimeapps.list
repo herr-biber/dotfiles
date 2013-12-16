@@ -1,7 +1,10 @@
 [Default Applications]
 x-scheme-handler/http=chromium.desktop
 x-scheme-handler/https=chromium.desktop
+text/html=chromium-browser-chromium.desktop
+text/x-log=gedit.desktop
 application/pdf=evince.desktop
+application/xml=gedit.desktop
 inode/directory=Thunar.desktop
 image/jpeg=sxiv.desktop
 image/gif=sxiv.desktop
