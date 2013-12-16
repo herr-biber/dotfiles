@@ -4,7 +4,7 @@ build.*/
 /.clang_complete
 .*.swp
 *~
-/CMakeLists.txt.user
+/CMakeLists.txt.user*
 *.pyc
 .idea
 .ipynb_checkpoints
