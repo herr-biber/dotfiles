@@ -6,5 +6,5 @@ build.*/
 *~
 /CMakeLists.txt.user
 *.pyc
-/.idea
+.idea
 .ipynb_checkpoints
