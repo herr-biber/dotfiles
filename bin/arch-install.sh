@@ -50,6 +50,11 @@ install_packages()
     yaourt --noconfirm --needed -S "$@"
 }
 
+enable_sysrq()
+{
+    echo 'kernel.sysrq = 1' | sudo tee /etc/sysctl.d/99-sysrq.conf
+}
+
 main()
 {
     # update credentials
@@ -73,6 +78,9 @@ main()
 
     # install packages
     install_packages $PACKAGES
+
+    # enable sysrq
+    enable_sysrq
 
     # TODO enable_services
 }
