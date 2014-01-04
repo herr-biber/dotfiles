@@ -33,5 +33,6 @@ eval $(ssh-agent)
 #export CHROMIUM_USER_FLAGS=--audio-buffer-size=2048:${CHROMIUM_USER_FLAGS}
 
 pulseaudio -D
+mount-tray &
 
 exec $1
