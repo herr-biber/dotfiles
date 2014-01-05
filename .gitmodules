@@ -63,3 +63,6 @@
 [submodule "awesome/awesome/bashets"]
 	path = awesome/awesome/bashets
 	url = https://git.gitorious.org/bashets/bashets.git
+[submodule "nano/nano"]
+	path = nano/nano
+	url = https://github.com/scopatz/nanorc.git
