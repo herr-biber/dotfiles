@@ -1,11 +1,14 @@
 #!/bin/bash
 if [ $(tmux ls 2>/dev/null | wc -l) -gt 0 ]; then
+    echo "ERROR: tmux is already running!"
     exit 1
 fi
-
-tmux kill-server >/dev/null 2>&1
-tmux new -d
-
+ 
+tmux kill-server >$HOME/.tmux.log 2>&1
+tmux new -d >$HOME/.tmux.log 2>&1
+ 
 while [ $(tmux ls 2>/dev/null | wc -l) -gt 0 ]; do
-    echo 3
+    sleep 60
 done
+ 
+echo "Exiting" >$HOME/.tmux.log
