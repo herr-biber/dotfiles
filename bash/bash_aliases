@@ -20,6 +20,7 @@ alias screen="tmux"
 alias sc="sudo systemctl"
 alias glances="glances -e"
 alias y="yaourt"
+alias o="xdg-open"
 
 # cd to target of link
 function cdlink
