@@ -206,7 +206,7 @@ if not is_awesome_35 then
                                               end, mytasklist.buttons)
 
         -- Create the wibox
-        mywibox[s] = awful.wibox({ position = "top", screen = s })
+        mywibox[s] = awful.wibox({ position = "bottom", screen = s })
         -- Add widgets to the wibox - order matters
         mywibox[s].widgets = {
             {
@@ -710,7 +710,7 @@ else
         mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
         -- Create the wibox
-        mywibox[s] = awful.wibox({ position = "top", screen = s })
+        mywibox[s] = awful.wibox({ position = "bottom", screen = s })
 
         -- Widgets that are aligned to the left
         local left_layout = wibox.layout.fixed.horizontal()
