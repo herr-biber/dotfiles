@@ -20,12 +20,16 @@ xset -b
 
 # US-Intl. AltGr layout, Caps is Ctrl, Menu is Compose
 setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps -option compose:menu
+
 # Make useless <> key useful
 # xmodmap -e "keycode 94 = Super_L Super_L Super_L"
 # xmodmap -e "add mod4 = Super_L"
 # Fix stupid xlock killer anti-feature
 xmodmap -e "keycode 63 = KP_Multiply NoSymbol KP_Multiply NoSymbol"
 xmodmap -e "keycode 106 = KP_Divide NoSymbol KP_Divide NoSymbol"
+
+# Load icc profile
+[ -f ~/.dotfiles/icc/current.icc ] && xcalib ~/.dotfiles/icc/current.icc
 
 #ssh agent
 eval $(ssh-agent)
