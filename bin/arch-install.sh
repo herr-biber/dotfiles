@@ -83,6 +83,9 @@ main()
     enable_sysrq
 
     # TODO enable_services
+    sudo systemctl enable smartd
+    sudo systemctl start  smartd
+
 }
 
 main
