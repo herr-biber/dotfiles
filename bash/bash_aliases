@@ -1,7 +1,8 @@
 # cd and store destination in .last_dir
 function cd_
 {
-  REALPATH=$(realpath "$@")
+  REALPATH=$HOME
+  [ "a$@" != "a" ] && REALPATH=$(realpath "$@")
   cd "$@" && echo $REALPATH > ~/.last_dir
 }
 
