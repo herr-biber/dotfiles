@@ -1,3 +1,11 @@
+# cd and store destination in .last_dir
+function cd_
+{
+  REALPATH=$(realpath "$@")
+  cd "$@" && echo $REALPATH > ~/.last_dir
+}
+
+alias cd="cd_"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
