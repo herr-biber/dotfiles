@@ -7,10 +7,11 @@
 
 export GIT_CEILING_DIRECTORIES="/home"
 
-[ -d "$HOME/bin" ] &&				export PATH="$HOME/bin:$PATH"
+[ -d "$HOME/bin" ]        && export PATH="$HOME/bin:$PATH"
+[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 
-[ -f "$HOME/.screenrc.local" ]     &&	export SCREENRC="$HOME/.screenrc.local"
-[ -f "$HOME/.screenrc.$HOSTNAME" ] &&	export SCREENRC="$HOME/.screenrc.$HOSTNAME"
+[ -f "$HOME/.screenrc.local" ]     && export SCREENRC="$HOME/.screenrc.local"
+[ -f "$HOME/.screenrc.$HOSTNAME" ] && export SCREENRC="$HOME/.screenrc.$HOSTNAME"
 
 # Try to set $TERM correctly
 if [ "$TERM" = "xterm" ]; then
