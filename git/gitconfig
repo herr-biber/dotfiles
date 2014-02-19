@@ -1,6 +1,6 @@
 [user]
 	name = Markus Roth
-	email = markus.roth@herr-biber.de
+	email = mail@rothmark.us
 
 [core]
 	excludesfile = ~/.gitignore
