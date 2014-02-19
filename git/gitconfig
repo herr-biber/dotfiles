@@ -4,7 +4,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	attributesfile = /home/markus/.gitattributes
+	attributesfile = /home/mroth/.gitattributes
 
 [color]
 	ui = auto
