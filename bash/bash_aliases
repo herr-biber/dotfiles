@@ -30,6 +30,8 @@ alias sc="sudo systemctl"
 alias glances="glances -e"
 alias y="yaourt"
 alias o="xdg-open"
+alias chromium-gpu="chromium --ignore-gpu-blacklist"
+
 
 # cd to target of link
 function cdlink
