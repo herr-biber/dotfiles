@@ -142,6 +142,9 @@ export VISUAL=${EDITOR}
 # Aliases
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
 
+# Functions
+[ -f $HOME/.bash_functions ] && source $HOME/.bash_functions
+
 # Set debian package build information
 export DEBFULLNAME="Markus Roth"
 export DEBEMAIL="markus.roth@herr-biber.de"
