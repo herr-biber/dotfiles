@@ -149,4 +149,4 @@ export VISUAL=${EDITOR}
 export DEBFULLNAME="Markus Roth"
 export DEBEMAIL="markus.roth@herr-biber.de"
 
-[[ -f ~/.last_dir ]] && cd $(cat ~/.last_dir)
+[[ -f ~/.last_dir ]] && cd "$(cat ~/.last_dir)"
