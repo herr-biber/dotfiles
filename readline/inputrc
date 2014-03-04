@@ -21,6 +21,15 @@ set output-meta on
 set bell-style none
 # set bell-style visible
 
+# alt+del xterm
+"\e\e[3~": kill-word
+# alt+del vt
+"\e[3~": kill-word
+# ctrl+del
+"\e[3^": kill-word
+# ctrl+backspace
+"\C-H": backward-kill-word
+
 # some defaults / modifications for the emacs mode
 $if mode=emacs
 
