@@ -33,6 +33,11 @@ alias o="xdg-open"
 alias chromium-gpu="chromium --ignore-gpu-blacklist"
 
 
+function rhtop()
+{
+    ssh -xt $1 htop
+}
+
 # cd to target of link
 function cdlink
 {
