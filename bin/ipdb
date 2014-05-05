@@ -1,0 +1,5 @@
+#!/bin/bash
+set -f
+set -x
+CMD=$@
+ipython --colors lightbg --pdb -c "%run $CMD"
