@@ -268,12 +268,17 @@ axes.axisbelow      : True     # whether axis gridlines and ticks are below
 #axes.color_cycle    : 8DD3C7, FFFFB3, BEBADA, FB8072, 80B1D3, FDB462, B3DE69, FCCDE5, D9D9D9, BC80BD, CCEBC5, FFED6F
 # created by ', '.join([mpl.colors.rgb2hex(rgb)[1:].upper() for rgb in brewer2mpl.get_map('Set1', 'qualitative', 9).mpl_colors])
 #axes.color_cycle    : E41A1C, 377EB8, 4DAF4A, 984EA3, FF7F00, FFFF33, A65628, F781BF, 999999
-# created by ', '.join([mpl.colors.rgb2hex(rgb)[1:].upper() for rgb in brewer2mpl.get_map('Paired', 'qualitative', 9).mpl_colors])
-axes.color_cycle     : A6CEE3, 1F78B4, B2DF8A, 33A02C, FB9A99, E31A1C, FDBF6F, FF7F00, CAB2D6
+
+# created by import brewer2mpl; import matplotlib as mpl; ', '.join([mpl.colors.rgb2hex(rgb)[1:].upper() for rgb in brewer2mpl.get_map('Paired', 'qualitative', 12).mpl_colors])
+axes.color_cycle     : A6CEE3, 1F78B4, B2DF8A, 33A02C, FB9A99, E31A1C, FDBF6F, FF7F00, CAB2D6, 6A3D9A, FFFF99, B15928
+
 # created by ', '.join([mpl.colors.rgb2hex(rgb)[1:].upper() for rgb in seaborn.color_palette("hls", 8)])
 #axes.color_cycle     : DB5F57, DBC257, 91DB57, 57DB80, 57D3DB, 5770DB, A157DB, DB57B2
 # from http://plotornot.chrisbeaumont.org/matplotlibrc
 #axes.color_cycle     : 377EB8, E41A1C, 4DAF4A, 984EA3, FF7F00
+
+# julia's
+#axes.color_cycle      : ff7e00, 1f78b4, a4d52d, f40000, fcc109, 43c4a3, ff5f92, 33a02c, 003366, 9b0000, 971692, a36e36
 
 #axes.xmargin        : 0  # x margin.  See `axes.Axes.margins`
 #axes.ymargin        : 0  # y margin See `axes.Axes.margins`
