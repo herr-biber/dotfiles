@@ -153,7 +153,3 @@ export DEBEMAIL="markus.roth@herr-biber.de"
 
 # Key bindings
 bind -x '"\C-l": clear'
-
-# https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts
-# 'on', 'lcd', 'gasp', etc.
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
