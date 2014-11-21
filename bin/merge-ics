@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+# Merge ics files into a single ics file containing all events. This is useful for importing multiple files in google calendar.
+
+import sys
+
+not_ical_file_str = "File %s not an .ics file"
+
+if len(sys.argv) < 2:
+    sys.stderr.write("Usage: %s <in1.ics> [in.ics ...]\n" % sys.argv[0])
+    sys.exit(1)
+
+ics_files = sys.argv[1:]
+
+with open(ics_files[0]) as fp:
+    lines = fp.readlines()
+header = lines[0]
+footer = lines[-1]
+
+assert 'BEGIN:VCALENDAR' in header, not_ical_file_str % ics_files[0]
+assert 'END:VCALENDAR' in footer, not_ical_file_str % ics_files[0]
+
+out = [header]
+for f in ics_files:
+    with open(f) as fp:
+        lines = fp.readlines()
+        assert 'BEGIN:VCALENDAR' in lines[0], not_ical_file_str % f
+        assert 'END:VCALENDAR' in lines[-1], not_ical_file_str % f
+        out.extend(lines[1:-1])
+
+out.append(footer)
+sys.stdout.writelines(out)
+
