@@ -21,6 +21,7 @@
 	sm = submodule
 	su = submodule update --init
 	psu = !git pull && git su
+	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 
 [merge]
 	tool = meld
