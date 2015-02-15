@@ -1,6 +1,10 @@
 #!/bin/bash
 
 DOTFILES=~/.dotfiles
+pushd $DOTFILES > /dev/null || exit 1
+git submodule init
+git submodule update
+popd > /dev/null
 
 for dir in $(ls $DOTFILES); do
     REL_DOTFILES=.dotfiles
