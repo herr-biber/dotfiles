@@ -32,7 +32,9 @@ export LC_MESSAGES=C
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 # Use source-highlight, if available
-if hash src-hilite-lesspipe.sh 2>/dev/null; then
+if [[ -x ~/.source-highlight/src-hilite-lesspipe.sh ]]; then
+    export LESSOPEN="| ~/.source-highlight/src-hilite-lesspipe.sh %s"
+elif hash src-hilite-lesspipe.sh 2>/dev/null; then
     export LESSOPEN="| src-hilite-lesspipe.sh %s"
 elif [[ -x /usr/share/source-highlight/src-hilite-lesspipe.sh ]]; then
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
