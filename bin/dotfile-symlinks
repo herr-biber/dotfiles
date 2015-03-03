@@ -11,6 +11,7 @@ for dir in $(ls $DOTFILES); do
     unset PREFIX
     [[ $dir == "bin" ]]        && continue
     [[ $dir == "icc" ]]        && continue
+    [[ $dir == "ext" ]]        && continue
     [[ $dir == "awesome" ]]    && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
     [[ $dir == "gtk3" ]]       && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
     [[ $dir == "matplotlib" ]] && PREFIX=~/.config && REL_DOTFILES=../.dotfiles

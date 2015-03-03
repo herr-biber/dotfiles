@@ -66,3 +66,6 @@
 [submodule "nano/nano"]
 	path = nano/nano
 	url = https://github.com/scopatz/nanorc.git
+[submodule "ext/Gdbinit"]
+	path = ext/Gdbinit
+	url = https://github.com/gdbinit/Gdbinit.git
