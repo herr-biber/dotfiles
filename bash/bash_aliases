@@ -57,3 +57,5 @@ alias lsnew="ls -d $(new)"
 alias llnew="ll -d $(new)"
 alias cdnew="cd $(new)"
 alias dparallel="parallel --dry-run"
+alias pclip='echo $PWD | clip'
+alias gitka='gitk --all'
