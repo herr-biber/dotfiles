@@ -1,5 +1,10 @@
 #!/bin/bash
-# send stdin without tailing newline to x clipboard
-INPUT=$(cat /dev/stdin)
-echo -ne "${INPUT}" | xclip -selection c -f
-echo
+if [ -t 0 ]; then
+    # stdin is interactive terminal. Push content of clipboard into stdout
+    xclip -o -selection c
+else
+    # send stdin without tailing newline to x clipboard
+    INPUT=$(cat /dev/stdin)
+    echo -ne "${INPUT}" | xclip -selection c -f
+    echo
+fi
