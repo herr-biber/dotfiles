@@ -10,7 +10,7 @@ alias cd="cd_"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ssh='ssh -c arcfour,blowfish-cbc -XC'
+alias ssh='ssh -XC'
 alias ..='cd ..'
 alias ...='cd ../..'
 # cd into most recent subdir
