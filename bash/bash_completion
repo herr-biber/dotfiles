@@ -171,3 +171,11 @@ _duplicity() {
 }
 
 complete -F _duplicity filenames duplicity
+
+# enable completion for sc alias
+_completion_loader systemctl
+complete -F _systemctl sc
+
+# enable completion for y alias
+_completion_loader yaourt
+complete -F _yaourt y
