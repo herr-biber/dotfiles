@@ -1,1 +1,1 @@
-include ".dotfiles/gtk/themes/Radiance/gtk-2.0/gtkrc"
+include ".dotfiles/gtk/themes/Adwaita/gtk-2.0/gtkrc"
