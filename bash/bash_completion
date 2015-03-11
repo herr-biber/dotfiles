@@ -1,0 +1,173 @@
+# http://neuling.org/devel/junkcode/duplicity-completion
+# https://bugs.launchpad.net/duplicity/+bug/1178619
+#
+# bash completions for duplicity
+# 
+# 
+# ${HOME}/.cache/duplicity/urls contains a list of URLS for use by duplicity
+# This is a bit of a hack since duplicity does store the urls anywhere. eg:
+#    % cat ${HOME}/.cache/duplicity/urls
+#    rsync://user@backuphost/backups/duplicity
+#    file:///media/disk/backups/duplicity
+# We don't need this but makes completions work a lot better
+
+_duplicity_url_list() {
+    URLCACHEFILE=${HOME}/.cache/duplicity/urls
+    if [ -e $URLCACHEFILE ] ; then
+	cat $URLCACHEFILE
+    fi
+}
+
+_duplicity_time_list() {
+    # not sure why the url is split
+    url=${COMP_WORDS[2]}${COMP_WORDS[3]}${COMP_WORDS[4]}
+    hash=$(echo -n "$url" | md5sum |cut -d" " -f1-1)
+    hashdir=${HOME}/.cache/duplicity/$hash
+    if [ ! -d $hashdir ] ; then
+	return
+    fi
+    cd $hashdir
+    filesfull="duplicity-full.*.manifest"
+    filesinc="duplicity-inc.*.manifest"
+
+    for i in $filesfull; do
+	t=${i:15:16}
+	timestr="${t:0:4}-${t:4:2}-${t:6:2} ${t:9:2}:${t:11:2}:${t:13:2}"
+	time=$(date --date="TZ=\"UTC\" $timestr" +%Y-%m-%dT%H:%M:%S)
+	TIMES="$TIMES $time"
+    done
+
+    for i in $filesinc; do
+	t=${i:34:16}
+	timestr="${t:0:4}-${t:4:2}-${t:6:2} ${t:9:2}:${t:11:2}:${t:13:2}"
+	time=$(date --date="TZ=\"UTC\" $timestr" +%Y-%m-%dT%H:%M:%S)
+	TIMES="$TIMES $time"
+    done
+
+    echo $TIMES
+}
+
+_duplicity() {
+    local cur prev
+
+    OMPREPLY=()
+    cur=${COMP_WORDS[COMP_CWORD]}
+    prev=${COMP_WORDS[COMP_CWORD-1]}
+    prev2=${COMP_WORDS[COMP_CWORD-2]}
+
+    opts="-h
+      --help
+      --allow-source-mismatch
+      --archive-dir
+      --asynchronous-upload
+      --dry-run
+      --encrypt-key
+      --encrypt-secret-keyring
+      --encrypt-sign-key
+      --exclude
+      --exclude-device-files
+      --exclude-filelist
+      --exclude-filelist-stdin
+      --exclude-globbing-filelist
+      --exclude-if-present
+      --exclude-other-filesystems
+      --exclude-regexp
+      --extra-clean
+      --file-prefix
+      -r
+      --file-to-restore
+      --force
+      --ftp-passive
+      --ftp-regular
+      --full-if-older-than
+      --gio
+      --gpg-options
+      --ignore-errors
+      --imap-mailbox
+      --include
+      --include-filelist
+      --include-filelist-stdin
+      --include-globbing-filelist
+      --include-regexp
+      --log-fd
+      --log-file
+      --name
+      --no-encryption
+      --no-compression
+      --no-print-statistics
+      --null-separator
+      --num-retries
+      --numeric-owner
+      --old-filenames
+      --pydevd
+      --rename
+      -t
+      --restore-time
+      --rsync-options
+      --s3-european-buckets
+      --s3-use-rrs
+      --s3-use-new-style
+      --s3-unencrypted-connection
+      --s3-multipart-chunk-size
+      --s3-use-multiprocessing
+      --scp-command
+      --sftp-command
+      --short-filenames
+      --sign-key
+      --ssh-askpass
+      --ssh-options
+      --tempdir
+      --timeout
+      --time
+      --time-separator
+      --use-agent
+      --use-scp
+      -v
+      --verbosity
+      -V
+      --version
+      --volsize"
+    cmds="cleanup
+      collection-status
+      full
+      incr
+      list-current-files
+      restore
+      remove-older-than
+      remove-all-but-n-full
+      remove-all-inc-of-but-n-full"
+    # complete -* with long options.
+    if [[ "$cur" == -* ]]
+    then
+	COMPREPLY=($(compgen -W "$opts" -- $cur))
+	return 0
+    fi
+
+    # first parameter on line - complete commands
+    if [ $COMP_CWORD -eq 1 ]
+    then
+	COMPREPLY=($(compgen -W "$cmds" -- $cur))
+	return 0
+    fi
+
+    # Complete depending on options
+    case $prev in
+	collection-status|list-current-files|cleanup|restore|verify)
+	    COMPREPLY=( $( compgen -W "$(_duplicity_url_list)" -- $cur ) )
+	    return 0
+	    ;;
+	-t|--time|--restore-time)
+	    COMPREPLY=( $( compgen -W "$(_duplicity_time_list)" -- $cur ) )
+	    return 0
+	    ;;
+    esac
+
+    case $prev2 in
+	full|incr|remove-older-than|remove-all-but-n-full|remove-all-inc-of-but-n-full)
+	    COMPREPLY=( $( compgen -W "$(_duplicity_url_list)" -- $cur ) )
+	    return 0
+	    ;;
+    esac
+}
+
+complete -F _duplicity filenames duplicity
