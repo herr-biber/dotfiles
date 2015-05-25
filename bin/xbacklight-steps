@@ -1,0 +1,23 @@
+#!/usr/bin/python2
+import sys
+
+values = [0, 1, 10] + list(range(20, 101, 20))
+brightness = int(round(float(sys.argv[1])))
+
+i = 0
+while i < len(values) and brightness > values[i]:
+    i += 1
+
+# decrease
+if sys.argv[2] == '-':
+    i -= 1
+else:
+    assert sys.argv[2] == '+'
+    if brightness == values[i]:
+        i += 1
+
+# clamp
+i = max(0,min(i,len(values)-1))
+sys.stderr.write("%d %d\n" % (i, values[i])) 
+
+print values[i]

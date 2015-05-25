@@ -825,7 +825,12 @@ else
         awful.key({ modkey }, "p", function() menubar.show() end),
         awful.key({ }, "XF86AudioRaiseVolume",  APW.Up),
         awful.key({ }, "XF86AudioLowerVolume",  APW.Down),
-        awful.key({ }, "XF86AudioMute",         APW.ToggleMute)
+        awful.key({ }, "XF86AudioMute",         APW.ToggleMute),
+
+        awful.key({ }, "XF86MonBrightnessDown", function ()
+            awful.util.spawn("bash -c \"xbacklight -set $(xbacklight-steps $(xbacklight) -)\"") end),
+        awful.key({ }, "XF86MonBrightnessUp", function ()
+            awful.util.spawn("bash -c \"xbacklight -set $(xbacklight-steps $(xbacklight) +)\"") end)
     )
 
     clientkeys = awful.util.table.join(
