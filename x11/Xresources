@@ -76,3 +76,6 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-B: perl:clipboard:paste_escaped
 URxvt.clipboard.copycmd:  xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+! history size
+URxvt.saveLines: 65535

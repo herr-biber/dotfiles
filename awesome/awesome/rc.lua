@@ -950,7 +950,14 @@ else
         { rule = { class = "Totalview", instance = "altVarWindow"},
           properties = {floating = true} },
         { rule = { class = "Totalview", instance = "RootWindow"},
+          properties = {floating = true} },
+        { rule = { name = "Configuration Editor"}, -- ADTF
           properties = {floating = true} },          
+        { rule = { name = " ADTF Development Environment (DEBUG)"}, -- ADTF
+          properties = { maximized_horizontal = true,
+                         maximized_vertical   = true } },        
+          
+                   
     }
     -- }}}
 
