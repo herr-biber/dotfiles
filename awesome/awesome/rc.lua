@@ -531,7 +531,7 @@ else
     
    local APW = require("apw/widget")
     batterystatus = wibox.widget.textbox()
-    bashets.register("/usr/bin/acpi -b | cut -d ' ' -f4 | cut -d ',' -f1", 
+    bashets.register("/usr/bin/acpi -b | cut -d ' ' -f5 | cut -d ':' -f1-2", 
        {
            widget = batterystatus,
            update_time = 60, 
