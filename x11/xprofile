@@ -1,3 +1,0 @@
-#!/bin/sh
-# freedesktop autostart
-hash dex 2> /dev/null && dex -a -e Awesome -d
