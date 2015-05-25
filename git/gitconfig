@@ -42,5 +42,5 @@
 	binary = true
 	command = diffpdf
 
-#[push]
-#	default = simple
+[push]
+	default = matching
