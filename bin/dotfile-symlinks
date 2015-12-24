@@ -17,6 +17,7 @@ for dir in $(ls $DOTFILES); do
     [[ $dir == "matplotlib" ]] && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
     [[ $dir == "htop" ]]       && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
     [[ $dir == "locale" ]]     && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
+    [[ $dir == "pulse" ]]      && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
     [[ $dir == "xdg" ]]        && PREFIX=~/.local/share && REL_DOTFILES=../../.dotfiles
     
 	for file in $(ls $DOTFILES/$dir); do
