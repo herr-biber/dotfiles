@@ -16,8 +16,9 @@ for dir in $(ls $DOTFILES); do
     [[ $dir == "gtk3" ]]       && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
     [[ $dir == "matplotlib" ]] && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
     [[ $dir == "htop" ]]       && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
-    [[ $dir == "locale" ]]       && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
+    [[ $dir == "locale" ]]     && PREFIX=~/.config && REL_DOTFILES=../.dotfiles
     [[ $dir == "xdg" ]]        && PREFIX=~/.local/share && REL_DOTFILES=../../.dotfiles
+    
 	for file in $(ls $DOTFILES/$dir); do
         if [[ -z $PREFIX ]]; then
             SOURCE=~/.$file
