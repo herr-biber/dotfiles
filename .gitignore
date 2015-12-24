@@ -14,3 +14,9 @@ moc/moc/playlist.m3u
 moc/moc/softmixer
 tilda/tilda/locks
 parallel/parallel/tmp
+pulse/pulse/*.tdb
+pulse/pulse/*default-sink
+pulse/pulse/*default-source
+pulse/pulse/*runtime
+pulse/pulse/cookie
+
