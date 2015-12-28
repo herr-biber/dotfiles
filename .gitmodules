@@ -69,3 +69,6 @@
 [submodule "ext/Gdbinit"]
 	path = ext/Gdbinit
 	url = https://github.com/gdbinit/Gdbinit.git
+[submodule "awesome/awesome/vicious"]
+	path = awesome/awesome/vicious
+	url = http://git.sysphere.org/vicious
