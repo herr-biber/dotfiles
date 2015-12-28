@@ -62,7 +62,7 @@
 	url = https://github.com/mokasin/apw.git
 [submodule "awesome/awesome/bashets"]
 	path = awesome/awesome/bashets
-	url = https://git.gitorious.org/bashets/bashets.git
+	url = https://code.google.com/p/bashets
 [submodule "nano/nano"]
 	path = nano/nano
 	url = https://github.com/scopatz/nanorc.git
