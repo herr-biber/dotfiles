@@ -46,4 +46,6 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 pulseaudio -D
 mount-tray &
 
+[ -f ~/.xinitrc.local ] && source ~/.xinitrc.local
+
 exec $1
