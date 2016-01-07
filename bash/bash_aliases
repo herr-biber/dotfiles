@@ -28,6 +28,7 @@ alias sc="sudo systemctl"
 alias y="yaourt"
 alias o="xdg-open"
 alias chromium-gpu="chromium --ignore-gpu-blacklist"
+alias lless='less -L'
 
 
 function rhtop()
