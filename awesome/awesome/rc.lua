@@ -92,15 +92,15 @@ if not is_awesome_35 then
     -- Define a tag table which will hold all screen tags.
     tags = {
         names  = { 1, 2, 3, 4, 5, 6, 7, 8, 9 } ,
-        layout = { awful.layout.suit.tile.bottom,
-                   awful.layout.suit.fair,
-                   awful.layout.suit.tile.bottom,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
+        layout = { awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
                  }
     }
     for s = 1, screen.count() do
