@@ -56,5 +56,5 @@ alias llnew="ll -d $(new)"
 alias cdnew="cd $(new)"
 alias dparallel="parallel --dry-run"
 alias pclip='pwd | clip'
-alias hclip='tail -1 ~/.bash_history | clip'
+alias hclip='tail -1 $HISTFILE | clip'
 alias gitka='gitk --all'
