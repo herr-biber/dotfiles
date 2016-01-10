@@ -91,7 +91,7 @@ if not is_awesome_35 then
     -- {{{ Tags
     -- Define a tag table which will hold all screen tags.
     tags = {
-        names  = { "browse", "✉", "mail", 4, 5, 6, 7, 8, 9 } ,
+        names  = { 1, 2, 3, 4, 5, 6, 7, 8, 9 } ,
         layout = { awful.layout.suit.tile.bottom,
                    awful.layout.suit.fair,
                    awful.layout.suit.tile.bottom,
