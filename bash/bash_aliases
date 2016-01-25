@@ -58,3 +58,4 @@ alias dparallel="parallel --dry-run"
 alias pclip='pwd | clip'
 alias hclip='tail -1 $HISTFILE | clip'
 alias gitka='gitk --all'
+alias matlabn='matlab -nodisplay -nosplash -nojvm -noawt'
