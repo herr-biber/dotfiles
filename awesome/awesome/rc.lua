@@ -527,7 +527,7 @@ else
     local naughty = require("naughty")
     local menubar = require("menubar")
 
-    bashets = require("bashets/bashets")
+    local bashets = require("bashets")
     
    local APW = require("apw/widget")
     batterystatus = wibox.widget.textbox()
