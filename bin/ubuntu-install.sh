@@ -4,7 +4,7 @@ PACKAGES_SAME_AS_ARCH="acpi alsa-utils asciidoc aspell-de aspell-en autofs aweso
 
 PACKAGES_NOTFOUND="ack alsa-plugins android-sdk-platform-tools android-udev apr base-devel boost chromium chromium-pepper-flash dhclient flashplugin fltk freeglut gconf gedit-latex glu gtest gtk-engine-murrine gtk-engine-unico gtk2 gtk2-perl gtk3 gvfs-afc gvfs-afp gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-smb hdf5 ipython2 jdk libgit2-glib libgnome libgnome-keyring libjpeg-turbo libreoffice-de libva-vdpau-driver libyaml mendeleydesktop mount-tray musicbrainz nss-mdns opencv openmpi openssh pdftk-bin perl-authen-sasl perl-file-mimeinfo perl-libwww perl-mime-tools perl-net-smtp-ssl perl-term-readkey protobuf pygtk python2-matplotlib python2-nose python2-numpy python2-pip python2-pyqt4 python2-pytest python2-scipy python2-sensors rxvt-unicode-terminfo sh skype teamviewer texlive-core texlive-fontsextra texlive-latexextra thunderbird-i18n-de thunderbird-i18n-en-us tightvnc ttf-ms-fonts tuxboot urxvt-perls vicious vte3 wxgtk xorg-xev xorg-xkill xorg-xprop xorg-xrandr xorg-xrdb youtube-viewer"
 
-PACKAGES_MANUAL="ack-grep flashplugin-installer android-tools-adb android-tools-adbd android-tools-fastboot browser-plugin-freshplayer-pepperflash chromium-browser cryptsetup-bin gconf2 ipython ipython-notebook libopencv-dev lm-sensors mplayer2 openssh-server pdftk skype git-gui silversearcher-ag lm-sensors"
+PACKAGES_MANUAL="ack-grep flashplugin-installer android-tools-adb android-tools-adbd android-tools-fastboot browser-plugin-freshplayer-pepperflash chromium-browser cryptsetup-bin gconf2 ipython ipython-notebook libopencv-dev lm-sensors mplayer2 openssh-server pdftk skype git-gui silversearcher-ag lm-sensors gparted"
 
 PACKAGES="$PACKAGES_SAME_AS_ARCH $PACKAGES_MANUAL"
 
