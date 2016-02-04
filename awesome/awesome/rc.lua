@@ -91,16 +91,16 @@ if not is_awesome_35 then
     -- {{{ Tags
     -- Define a tag table which will hold all screen tags.
     tags = {
-        names  = { "browse", "✉", "mail", 4, 5, 6, 7, 8, 9 } ,
-        layout = { awful.layout.suit.tile.bottom,
-                   awful.layout.suit.fair,
-                   awful.layout.suit.tile.bottom,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
-                   awful.layout.suit.tile,
+        names  = { 1, 2, 3, 4, 5, 6, 7, 8, 9 } ,
+        layout = { awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
+                   awful.layout.suit.tile.left,
                  }
     }
     for s = 1, screen.count() do
@@ -527,7 +527,7 @@ else
     local naughty = require("naughty")
     local menubar = require("menubar")
 
-    bashets = require("bashets/bashets")
+    local bashets = require("bashets")
     
    local APW = require("apw/widget")
     batterystatus = wibox.widget.textbox()

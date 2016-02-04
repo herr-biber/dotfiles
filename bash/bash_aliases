@@ -6,7 +6,7 @@ function cd_
   cd "$@" && echo $REALPATH > ~/.last_dir
 }
 
-alias cd="cd_"
+which realpath 1> /dev/null 2> /dev/null && alias cd="cd_"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -28,6 +28,7 @@ alias sc="sudo systemctl"
 alias y="yaourt"
 alias o="xdg-open"
 alias chromium-gpu="chromium --ignore-gpu-blacklist"
+alias lless='less -L'
 
 
 function rhtop()
@@ -54,6 +55,7 @@ alias lsnew="ls -d $(new)"
 alias llnew="ll -d $(new)"
 alias cdnew="cd $(new)"
 alias dparallel="parallel --dry-run"
-alias pclip='echo $PWD | clip'
-alias hclip='tail -1 ~/.bash_history | clip'
+alias pclip='pwd | clip'
+alias hclip='tail -1 $HISTFILE | clip'
 alias gitka='gitk --all'
+alias matlabn='matlab -nodisplay -nosplash -nojvm -noawt'

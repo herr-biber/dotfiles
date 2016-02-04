@@ -4,7 +4,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
-	attributesfile = /home/mroth/.gitattributes
+	attributesfile = ~/.gitattributes
 
 [color]
 	ui = auto
@@ -22,6 +22,7 @@
 	su = submodule update --init
 	psu = !git pull && git su
 	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 
 [merge]
 	tool = meld
@@ -44,3 +45,6 @@
 
 [push]
 	default = matching
+	
+[include]
+    path = ~/.gitconfig.local

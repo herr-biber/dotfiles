@@ -58,7 +58,7 @@ URxvt.iso14755_52:  false
 URxvt.cursorBlink:  true
 
 ! Plugins
-URxvt.perl-lib:        .urxvt/perl
+URxvt.perl-lib:        ENV_HOME/.urxvt/perl
 URxvt.perl-ext-common: url-select,keyboard-select,clipboard
 
 ! URL selection plugin

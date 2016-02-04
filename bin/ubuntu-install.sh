@@ -1,59 +1,25 @@
 #!/bin/bash
 
-enable_repos()
-{
-    if `grep -q 12.04 /etc/issue.net` ; then
-        echo deb http://cvhci.anthropomatik.kit.edu/linux-install/ubuntu/apt/precise ./ > /etc/apt/sources.list.d/cvhci.list
-        echo deb http://cvhci.anthropomatik.kit.edu/linux-install/ubuntu/mirror precise main restricted universe multiverse > /etc/apt/sources.list.d/cvhci-mirror.list
-        echo deb http://cvhci.anthropomatik.kit.edu/linux-install/ubuntu/mirror precise-security main restricted universe multiverse >> /etc/apt/sources.list.d/cvhci-mirror.list
-        echo deb http://cvhci.anthropomatik.kit.edu/linux-install/ubuntu/mirror precise-updates main restricted universe multiverse >> /etc/apt/sources.list.d/cvhci-mirror.list
-    else
-        echo deb http://cvhci.anthropomatik.kit.edu/linux-install/ubuntu/apt/oneiric ./ > /etc/apt/sources.list.d/cvhci.list
-    fi
+PACKAGES_SAME_AS_ARCH="acpi alsa-utils asciidoc aspell-de aspell-en autofs awesome bash-completion bc brasero ca-certificates cmake cups cups-filters cups-pdf cvsps dex dnsutils dosfstools doxygen evince exiv2 fetchmail ffmpeg file-roller firefox flac fuse gdb gedit gedit-plugins gimp glances gnome-keyring gnome-themes-standard gnupg gnuplot hddtemp htop imagemagick inkscape iotop jack lame lftp libcanberra-gstreamer libcanberra-pulse libreoffice lsb-release lsof meld mpg123 nano ninja ntfs-3g odt2txt opencl-headers openssl openvpn p7zip paprefs pavucontrol phatch pidgin pidgin-otr pmount powertop procmail pulseaudio qtcreator rlwrap rsync rxvt-unicode samba smartmontools smbclient source-highlight sshfs strace subversion swig sxiv texlive-publishers texlive-science thunderbird tk tmux ttf-dejavu unrar unzip valgrind vlc wget xcalib xclip"
 
-    echo deb http://www.mendeley.com/repositories/ubuntu/stable / > /etc/apt/sources.list.d/mendeleydesktop.list
-}
+PACKAGES_NOTFOUND="ack alsa-plugins android-sdk-platform-tools android-udev apr base-devel boost chromium chromium-pepper-flash dhclient flashplugin fltk freeglut gconf gedit-latex glu gtest gtk-engine-murrine gtk-engine-unico gtk2 gtk2-perl gtk3 gvfs-afc gvfs-afp gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-smb hdf5 ipython2 jdk libgit2-glib libgnome libgnome-keyring libjpeg-turbo libreoffice-de libva-vdpau-driver libyaml mendeleydesktop mount-tray musicbrainz nss-mdns opencv openmpi openssh pdftk-bin perl-authen-sasl perl-file-mimeinfo perl-libwww perl-mime-tools perl-net-smtp-ssl perl-term-readkey protobuf pygtk python2-matplotlib python2-nose python2-numpy python2-pip python2-pyqt4 python2-pytest python2-scipy python2-sensors rxvt-unicode-terminfo sh skype teamviewer texlive-core texlive-fontsextra texlive-latexextra thunderbird-i18n-de thunderbird-i18n-en-us tightvnc ttf-ms-fonts tuxboot urxvt-perls vicious vte3 wxgtk xorg-xev xorg-xkill xorg-xprop xorg-xrandr xorg-xrdb youtube-viewer"
 
-check_network()
-{
-    echo -ne "Checking if network is up..."
-    i=0
-    while ! ping -q -c 1 141.3.14.1 >/dev/null; do
-        i=$(( i+1 ))
-        sleep 1
-        echo -ne "."
-        if [[ $i -gt 30 ]]; then
-            echo
-            echo "Network is not up. Please fix and restart..."
-            exit 1
-        fi
-    done
-    echo
-}
+PACKAGES_MANUAL="ack-grep flashplugin-installer android-tools-adb android-tools-adbd android-tools-fastboot browser-plugin-freshplayer-pepperflash chromium-browser cryptsetup-bin gconf2 ipython ipython-notebook libopencv-dev lm-sensors mplayer2 openssh-server pdftk skype git-gui silversearcher-ag lm-sensors gparted"
+
+PACKAGES="$PACKAGES_SAME_AS_ARCH $PACKAGES_MANUAL"
 
 refresh_packages()
 {
     echo "Refreshing packages..."
-    apt-get -y update
-    apt-get upgrade
+    sudo apt-get -y update
+    sudo apt-get dist-upgrade
 }
-
 
 install_common()
 {
-    apt-get -y --allow-unauthenticated install cvhci-common
+    sudo apt-get install $PACKAGES
 }
 
 
-if [[ $(id -u) != 0 ]]; then
-    echo "This script must be run as root!"
-    exit 1
-fi
-
-echo "Welcome to installer..."
-echo "======================="
-
-enable_repos
-check_network
 refresh_packages
 install_common

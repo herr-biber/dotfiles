@@ -13,7 +13,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # X resources
-[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+# https://forums.gentoo.org/viewtopic-p-7641950.html?sid=05eac1918d38ae3bd69c4a9c42452b89
+[ -f ~/.Xresources ] && xrdb -merge -DENV_HOME="${HOME}" ~/.Xresources
+# https://wiki.archlinux.org/index.php/X_resources#Adding_to_xinitrc
+#[ -f ~/.Xresources ] && xrdb -merge -I"${HOME}" ~/.Xresources
 
 # turn bell off
 xset -b
@@ -45,5 +48,7 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
 pulseaudio -D
 mount-tray &
+
+[ -f ~/.xinitrc.local ] && source ~/.xinitrc.local
 
 exec $1
