@@ -89,7 +89,14 @@ main()
     sudo systemctl start  NetworkManager
     sudo systemctl enable smartd
     sudo systemctl start  smartd
-
+    sudo systemctl enable thermald
+    sudo systemctl start thermald
+    sudo systemctl enable acpid
+    sudo systemctl start acpid
+    sudo systemctl enable sshd
+    sudo systemctl start sshd
+    sudo systemctl enable ntpd
+    sudo systemctl start ntpd
 }
 
 main
