@@ -49,6 +49,11 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 pulseaudio -D
 mount-tray &
 
+
+# freedesktop autostart
+hash dex 2> /dev/null && dex -a -e Awesome
+xscreensaver -nosplash &
+
 [ -f ~/.xinitrc.local ] && source ~/.xinitrc.local
 
 exec $1
