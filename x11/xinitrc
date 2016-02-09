@@ -52,7 +52,7 @@ mount-tray &
 
 # freedesktop autostart
 hash dex 2> /dev/null && dex -a -e Awesome
-xscreensaver -nosplash &
+xscreensaver -no-splash &
 
 [ -f ~/.xinitrc.local ] && source ~/.xinitrc.local
 
