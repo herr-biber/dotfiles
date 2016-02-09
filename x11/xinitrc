@@ -46,9 +46,14 @@ hash gpg-agent 2> /dev/null && eval $(gpg-agent --daemon)
 # 'on', 'lcd', 'gasp', etc.
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
+# java wm bug with awesome
+# https://bbs.archlinux.org/viewtopic.php?pid=1105995#p1105995
+# http://awesome.naquadah.org/wiki/Problems_with_Java
+# export _JAVA_AWT_WM_NONREPARENTING=1
+~/bin/java-nonreparenting-wm-hack.sh
+
 pulseaudio -D
 mount-tray &
-
 
 # freedesktop autostart
 hash dex 2> /dev/null && dex -a -e Awesome
