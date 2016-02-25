@@ -53,7 +53,7 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 ~/bin/java-nonreparenting-wm-hack.sh
 
 pulseaudio -D
-mount-tray &
+hash mount-tray 2> /dev/null && mount-tray &
 
 # freedesktop autostart
 hash dex 2> /dev/null && dex -a -e Awesome
