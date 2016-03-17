@@ -506,7 +506,7 @@ if not is_awesome_35 then
     os.execute("if ! ps -e | grep \"nm-applet\"; then exec nm-applet & fi")
     --os.execute("if ! ps -e | grep \"tilda\"; then exec tilda & fi")
     os.execute("gnome-settings-daemon &")
-    os.execute("gnome-sound-applet &")
+--    os.execute("gnome-sound-applet &")
     --os.execute("bluetooth-applet &")
     os.execute("/home/markus/bin/setmode &")
 
