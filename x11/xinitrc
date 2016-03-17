@@ -5,6 +5,7 @@ if ! shopt -q login_shell; then
     exec bash -l $0 "$@"
 fi
 
+# arch
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
     [ -x "$f" ] && . "$f"
@@ -12,53 +13,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# X resources
-# https://forums.gentoo.org/viewtopic-p-7641950.html?sid=05eac1918d38ae3bd69c4a9c42452b89
-[ -f ~/.Xresources ] && xrdb -merge -DENV_HOME="${HOME}" ~/.Xresources
-# https://wiki.archlinux.org/index.php/X_resources#Adding_to_xinitrc
-#[ -f ~/.Xresources ] && xrdb -merge -I"${HOME}" ~/.Xresources
-
-# turn bell off
-xset -b
-
-# US-Intl. AltGr layout, Caps is Ctrl, Menu is Compose
-setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps -option compose:menu
-
-# Make useless <> key useful
-# xmodmap -e "keycode 94 = Super_L Super_L Super_L"
-# xmodmap -e "add mod4 = Super_L"
-# Fix stupid xlock killer anti-feature
-xmodmap -e "keycode 63 = KP_Multiply NoSymbol KP_Multiply NoSymbol"
-xmodmap -e "keycode 106 = KP_Divide NoSymbol KP_Divide NoSymbol"
-
-# Load icc profile
-[ -f ~/.dotfiles/icc/current.icc ] && xcalib ~/.dotfiles/icc/current.icc
-
-#ssh agent
-eval $(ssh-agent)
-
-#gpg agent
-hash gpg-agent 2> /dev/null && eval $(gpg-agent --daemon)
-
-#export CHROMIUM_USER_FLAGS=--audio-buffer-size=2048:${CHROMIUM_USER_FLAGS}
-
-# https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts
-# 'on', 'lcd', 'gasp', etc.
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
-
-# java wm bug with awesome
-# https://bbs.archlinux.org/viewtopic.php?pid=1105995#p1105995
-# http://awesome.naquadah.org/wiki/Problems_with_Java
-# export _JAVA_AWT_WM_NONREPARENTING=1
-~/bin/java-nonreparenting-wm-hack.sh
-
-pulseaudio -D
-hash mount-tray 2> /dev/null && mount-tray &
-
-# freedesktop autostart
-hash dex 2> /dev/null && dex -a -e Awesome
-xscreensaver -no-splash &
-
-[ -f ~/.xinitrc.local ] && source ~/.xinitrc.local
-
-exec $1
+if [ -f /etc/X11/Xsession ]; then
+  # ubuntu lightdm. /etc/X11/Xsession sources ~/.xsessionrc and spawns all necessary processes AND starts WM
+  source /etc/X11/Xsession
+else 
+  # arch slim
+  [ -f ~/.xsessionrc ] && source ~/.xsessionrc
+  exec $1
+fi

@@ -1,1 +1,46 @@
-xinitrc
+#!/bin/bash
+# this script is being sourced by /etc/X11/Xsession.d/40x11-common_xsessionrc (ubuntu, lightdm)
+#                          and by ~/.xinitrc (arch, slim)
+
+# X resources
+# https://forums.gentoo.org/viewtopic-p-7641950.html?sid=05eac1918d38ae3bd69c4a9c42452b89
+[ -f ~/.Xresources ] && xrdb -merge -DENV_HOME="${HOME}" ~/.Xresources
+# https://wiki.archlinux.org/index.php/X_resources#Adding_to_xinitrc
+#[ -f ~/.Xresources ] && xrdb -merge -I"${HOME}" ~/.Xresources
+
+# turn bell off
+xset -b
+
+# US-Intl. AltGr layout, Caps is Ctrl, Menu is Compose
+setxkbmap -layout us -variant altgr-intl -option ctrl:nocaps -option compose:menu
+
+# Make useless <> key useful
+# xmodmap -e "keycode 94 = Super_L Super_L Super_L"
+# xmodmap -e "add mod4 = Super_L"
+# Fix stupid xlock killer anti-feature
+xmodmap -e "keycode 63 = KP_Multiply NoSymbol KP_Multiply NoSymbol"
+xmodmap -e "keycode 106 = KP_Divide NoSymbol KP_Divide NoSymbol"
+
+# Load icc profile
+[ -f ~/.dotfiles/icc/current.icc ] && xcalib ~/.dotfiles/icc/current.icc
+
+# https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts
+# 'on', 'lcd', 'gasp', etc.
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+
+# java wm bug with awesome
+# https://bbs.archlinux.org/viewtopic.php?pid=1105995#p1105995
+# http://awesome.naquadah.org/wiki/Problems_with_Java
+# export _JAVA_AWT_WM_NONREPARENTING=1
+~/bin/java-nonreparenting-wm-hack.sh
+
+# TODO check for pulseaudio already runnning
+pulseaudio -D
+
+hash mount-tray 2> /dev/null && mount-tray &
+
+# freedesktop autostart
+hash dex 2> /dev/null && dex -a -e Awesome
+xscreensaver -no-splash &
+
+[ -f ~/.xsessionrc.local ] && source ~/.xsessionrc.local
