@@ -40,6 +40,9 @@ gnome-sound-applet &
 
 hash mount-tray 2> /dev/null && mount-tray &
 
+# compositing manager
+hash unagi 2> /dev/null && unagi &
+
 # freedesktop autostart
 hash dex 2> /dev/null && dex -a -e Awesome
 xscreensaver -no-splash &
