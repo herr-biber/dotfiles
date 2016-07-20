@@ -458,6 +458,8 @@ if not is_awesome_35 then
           properties = {floating = true} },
         { rule = { class = "Totalview", instance = "RootWindow"},
           properties = {floating = true} },
+        { rule = { class = "Kazam" },
+          properties = {floating = true} },
     }
     -- }}}
 
@@ -953,8 +955,8 @@ else
         { rule = { name = " ADTF Development Environment (DEBUG)"}, -- ADTF
           properties = { maximized_horizontal = true,
                          maximized_vertical   = true } },        
-          
-                   
+        { rule = { class = "Kazam" },
+          properties = {floating = true} },
     }
     -- }}}
 
