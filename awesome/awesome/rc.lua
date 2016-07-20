@@ -502,11 +502,6 @@ if not is_awesome_35 then
     client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
     -- }}}
 
-    os.execute("gnome-settings-daemon &")
---    os.execute("gnome-sound-applet &")
-    --os.execute("bluetooth-applet &")
-    os.execute("/home/markus/bin/setmode &")
-
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
