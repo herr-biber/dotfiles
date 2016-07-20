@@ -37,6 +37,7 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 # TODO check for pulseaudio already runnning
 pulseaudio -D
 gnome-sound-applet &
+nm-applet &
 
 hash mount-tray 2> /dev/null && mount-tray &
 
