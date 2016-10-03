@@ -24,6 +24,12 @@ xmodmap -e "keycode 106 = KP_Divide NoSymbol KP_Divide NoSymbol"
 # Load icc profile
 [ -f ~/.dotfiles/icc/current.icc ] && xcalib ~/.dotfiles/icc/current.icc
 
+#ssh agent
+eval $(ssh-agent)
+
+#gpg agent
+hash gpg-agent 2> /dev/null && eval $(gpg-agent --daemon)
+
 # https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts
 # 'on', 'lcd', 'gasp', etc.
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
