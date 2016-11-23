@@ -119,7 +119,10 @@ function my_prompt_command
 	fi
 
 	# Set prompt
-	PS1="${USER_COLOR}\u${GREEN}@${CYAN}\h${RESET}:${YELLOW}${PROMPT_PWD}${LRED}${PROMPT_RC}${PURPLE}${GIT_BRANCH}${RESET}\\\$ "
+	local HOST_HASH=$(echo "${HOSTNAME}" | cksum | cut -d' ' -f1)
+	local HOST_HASH=$(expr $HOST_HASH % 255)
+	local HOST_BG="\[\e[48;5;${HOST_HASH}m\]"
+	PS1="${USER_COLOR}\u${GREEN}@${CYAN}${HOST_BG}\h${RESET}:${YELLOW}${PROMPT_PWD}${LRED}${PROMPT_RC}${PURPLE}${GIT_BRANCH}${RESET}\\\$ "
 
 	# Set xterm title and screen title
 	case "$TERM" in
