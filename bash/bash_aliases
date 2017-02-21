@@ -61,4 +61,4 @@ alias gitka='gitk --all'
 alias matlabn='matlab -nodisplay -nosplash -nojvm -noawt'
 
 alias kkk='kill %1 %2 %3 %4 %5 %6 %7 %8 %9'
-rpcl='rosbag play --clock --loop'
+alias rpcl='rosbag play --clock --loop'
