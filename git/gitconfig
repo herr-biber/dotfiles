@@ -23,6 +23,7 @@
 	psu = !git pull && git su
 	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	authors = !sh -c 'git log --pretty=\"format:%an <%ae>%n%cn <%ce>\" $@ | sort | uniq' -
 
 [merge]
 	tool = meld
