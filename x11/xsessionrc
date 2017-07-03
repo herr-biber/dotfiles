@@ -25,10 +25,10 @@ xmodmap -e "keycode 106 = KP_Divide NoSymbol KP_Divide NoSymbol"
 [ -f ~/.dotfiles/icc/current.icc ] && xcalib ~/.dotfiles/icc/current.icc
 
 #ssh agent
-eval $(ssh-agent)
+[ -z "$SSH_AGENT_PID" ] || eval $(ssh-agent)
 
 #gpg agent
-hash gpg-agent 2> /dev/null && eval $(gpg-agent --daemon)
+if [ "a$GPG_AGENT_INFO" = "a" ]; then hash gpg-agent 2> /dev/null && eval $(gpg-agent --daemon); fi
 
 # https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts
 # 'on', 'lcd', 'gasp', etc.
