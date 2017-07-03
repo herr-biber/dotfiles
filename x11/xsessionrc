@@ -40,8 +40,7 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 # export _JAVA_AWT_WM_NONREPARENTING=1
 ~/bin/java-nonreparenting-wm-hack.sh
 
-# TODO check for pulseaudio already runnning
-pulseaudio -D
+pulseaudio --check || pulseaudio -D
 gnome-sound-applet &
 nm-applet &
 
