@@ -44,8 +44,14 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 ~/bin/java-nonreparenting-wm-hack.sh
 
 pulseaudio --check || pulseaudio -D
-gnome-sound-applet &
-nm-applet &
+
+if ! pgrep -x "gnome-sound-applet" > /dev/null
+    then gnome-sound-applet &
+fi
+
+if ! pgrep -x "nm-applet" > /dev/null
+    then nm-applet &
+fi
 
 hash mount-tray 2> /dev/null && mount-tray &
 
