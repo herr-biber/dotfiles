@@ -152,7 +152,7 @@ export VISUAL=${EDITOR}
 
 # Set debian package build information
 export DEBFULLNAME="Markus Roth"
-export DEBEMAIL="markus.roth@herr-biber.de"
+export DEBEMAIL="mail@rothmark.us"
 
 [[ -f ~/.last_dir ]] && cd "$(cat ~/.last_dir)"
 
