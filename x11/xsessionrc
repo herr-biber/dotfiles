@@ -2,6 +2,9 @@
 # this script is being sourced by /etc/X11/Xsession.d/40x11-common_xsessionrc (ubuntu, lightdm)
 #                          and by ~/.xinitrc (arch, slim)
 
+# freedesktop autostart
+dex -a -e Awesome
+
 # X resources
 # https://forums.gentoo.org/viewtopic-p-7641950.html?sid=05eac1918d38ae3bd69c4a9c42452b89
 [ -f ~/.Xresources ] && xrdb -merge -DENV_HOME="${HOME}" ~/.Xresources
@@ -49,8 +52,6 @@ hash mount-tray 2> /dev/null && mount-tray &
 # compositing manager
 [ "a$1" = "aawesome" ] && hash unagi 2> /dev/null && unagi &
 
-# freedesktop autostart
-hash dex 2> /dev/null && dex -a -e Awesome
 xscreensaver -no-splash &
 
 [ -f ~/.xsessionrc.local ] && source ~/.xsessionrc.local
