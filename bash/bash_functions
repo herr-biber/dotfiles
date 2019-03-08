@@ -230,3 +230,9 @@ function mymake() {
     
     return 0
 }
+
+function get_symbols()
+{
+readelf -Ws $1  | awk '{print $8}'
+}
+export -f get_symbols
