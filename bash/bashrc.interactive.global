@@ -119,10 +119,28 @@ function my_prompt_command
 	fi
 
 	# Set prompt
+	
+	# hash hostname to background color
+	#
+	# show colors
+	# http://askubuntu.com/a/681719
+	# 
+    # !/bin/bash
+    # for((i=16; i<256; i++)); do
+    #     printf "\e[48;5;${i}m%03d" $i;
+    #     printf '\e[0m';
+    #     [ ! $((($i - 15) % 6)) -eq 0 ] && printf ' ' || printf '\n'
+    # done
+    #
 	local HOST_HASH=$(echo "${HOSTNAME}" | cksum | cut -d' ' -f1)
-	local HOST_HASH=$(expr $HOST_HASH % 255)
-	local HOST_BG="\[\e[48;5;${HOST_HASH}m\]"
+	local HOST_HASH=$(expr $HOST_HASH % 239) # 0..(255-16)
+	local HOST_HASH_GROUP=$(expr $HOST_HASH / 36) # group of each 36 elements
+	local HOST_HASH_COL=$(expr $HOST_HASH % 6)
+	local HOST_HASH_ROW_OFFSET=$(expr 16 + \( 1 \* 6 \)) # 16 to skip special colors at beginning, and use second row in group
+	local HOST_HASH_COLOR=$(expr \( \( $HOST_HASH_GROUP \* 36 \)  + $HOST_HASH_ROW_OFFSET \) + $HOST_HASH_COL)
+	local HOST_BG="\[\e[48;5;${HOST_HASH_COLOR}m\]"
 	PS1="${USER_COLOR}\u${GREEN}@${CYAN}${HOST_BG}\h${RESET}:${YELLOW}${PROMPT_PWD}${LRED}${PROMPT_RC}${PURPLE}${GIT_BRANCH}${RESET}\\\$ "
+	export HOST_HASH_GROUP
 
 	# Set xterm title and screen title
 	case "$TERM" in
@@ -150,11 +168,14 @@ export VISUAL=${EDITOR}
 # Functions
 [ -f $HOME/.bash_functions ] && source $HOME/.bash_functions
 
+# ssh agent
+source ~/.bash_sshagent
+
 # Set debian package build information
 export DEBFULLNAME="Markus Roth"
 export DEBEMAIL="mail@rothmark.us"
 
-[[ -f ~/.last_dir ]] && cd "$(cat ~/.last_dir)"
+[[ -f /tmp/$USER-last-dir ]] && cd "$(cat /tmp/$USER-last-dir)"
 
 # Key bindings
 bind -x '"\C-l": clear'
