@@ -1,12 +1,13 @@
-# cd and store destination in .last_dir
+# cd and store destination in /tmp/$USER-last-dir
 function cd_
 {
   REALPATH=$HOME
   [ "a$@" != "a" ] && REALPATH=$(realpath "$@")
-  cd "$@" && echo $REALPATH > ~/.last_dir
+  cd "$@" && echo $REALPATH > /tmp/$USER-last-dir
+  echo $REALPATH
 }
 
-which realpath 1> /dev/null 2> /dev/null && alias cd="cd_"
+#which realpath 1> /dev/null 2> /dev/null && unalias cd && alias cd="cd_"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
