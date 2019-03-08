@@ -49,3 +49,6 @@
 	
 [include]
     path = ~/.gitconfig.local
+
+[credential]
+	helper = cache --timeout 999999999 --socket ~/.git-credential-cache/socket
