@@ -27,10 +27,10 @@ xmodmap -e "keycode 106 = KP_Divide NoSymbol KP_Divide NoSymbol"
 # Load icc profile
 [ -f ~/.dotfiles/icc/current.icc ] && xcalib ~/.dotfiles/icc/current.icc
 
-#ssh agent
-[ -z "$SSH_AGENT_PID" ] || eval $(ssh-agent)
+# ssh agent
+source ~/.bash_sshagent
 
-#gpg agent
+# gpg agent
 if [ "a$GPG_AGENT_INFO" = "a" ]; then hash gpg-agent 2> /dev/null && eval $(gpg-agent --daemon); fi
 
 # https://wiki.archlinux.org/index.php/Java_Runtime_Environment_Fonts
@@ -56,8 +56,11 @@ fi
 hash mount-tray 2> /dev/null && mount-tray &
 
 # compositing manager
-[ "a$1" = "aawesome" ] && hash unagi 2> /dev/null && unagi &
+#[ "a$1" = "aawesome" ] && hash unagi 2> /dev/null && unagi &
 
 xscreensaver -no-splash &
+
+# make sure numlock is on
+hash numlockx 2> /dev/null & numlockx on
 
 [ -f ~/.xsessionrc.local ] && source ~/.xsessionrc.local
