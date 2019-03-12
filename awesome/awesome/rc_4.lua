@@ -487,6 +487,7 @@ awful.rules.rules = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
+          "TeamViewer.exe",
         },
         class = {
           "Arandr",
@@ -497,7 +498,13 @@ awful.rules.rules = {
           "Wpa_gui",
           "pinentry",
           "veromix",
-          "xtightvncviewer"},
+          "xtightvncviewer",
+          "MPlayer",
+          "Gimp",
+          "Tilda",
+          "Skype",
+          "Kazam",
+          },
 
         name = {
           "Event Tester",  -- xev.
@@ -512,6 +519,16 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = true }
     },
+
+    { rule_any = {
+        class = {
+          "Git-gui",
+          "Git-citool",
+          "Gitk"
+        },
+      }, properties = { maximized_horizontal = true,
+                        maximized_vertical   = true }
+    }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
