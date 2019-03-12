@@ -47,6 +47,12 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
+-- Override border colors
+beautiful.border_normal = "#555555"
+beautiful.border_width  = 2
+beautiful.border_focus  = "#cc0000"
+
+
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
@@ -201,7 +207,8 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    -- tile left for all screens
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.suit.tile.left)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -220,7 +227,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -336,6 +343,8 @@ globalkeys = gears.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
+    awful.key({ "Mod1" },            "F2",    function () awful.screen.focused().mypromptbox:run() end,
+              {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -360,6 +369,8 @@ clientkeys = gears.table.join(
         end,
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+              {description = "close", group = "client"}),
+    awful.key({ "Mod1"            }, "F4",     function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
@@ -566,12 +577,12 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-        and awful.client.focus.filter(c) then
-        client.focus = c
-    end
-end)
+-- client.connect_signal("mouse::enter", function(c)
+--    if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+--        and awful.client.focus.filter(c) then
+--        client.focus = c
+--    end
+--end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
