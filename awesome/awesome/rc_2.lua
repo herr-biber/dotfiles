@@ -457,6 +457,8 @@ awful.rules.rules = {
       properties = {floating = true} },
     { rule = { class = "Kazam" },
       properties = {floating = true} },
+    { rule = { name = "Microsoft Teams Notification" },
+      properties = {floating = true} },
 }
 -- }}}
 
